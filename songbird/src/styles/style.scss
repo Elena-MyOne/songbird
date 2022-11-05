@@ -1,0 +1,78 @@
+@import "~normalize.css";
+@import "reset.scss";
+
+@use "sass:math";
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,regular,italic,500,700,900&display=swap&subset=cyrillic-ext);
+
+
+$minWidth: 320px;
+$maxWidth: 1600;
+$maxWidthContainer: 1160px;
+
+$md1:$maxWidthContainer + 12;
+$md2:992.98;
+$md3:767.98;
+$md4:479.98;
+
+$fontfamily: Roboto;
+$fontSize: 14;
+
+//colors
+$green: #00A97f;
+$orange: #f08f35;
+$blackBlue: #333B41;
+$grey: #eee9e9;
+$floralWhite: #fff8f0;
+
+
+@mixin btnDef() {
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  border-radius: 25px;
+}
+
+//=========================================
+html {
+  scroll-behavior: smooth;  
+}
+body{
+ color: $mainColor;
+  font-family: $fontfamily;
+ @media (max-width: ($md3+px)){
+   &.lock{
+     overflow: hidden;
+   }
+ }
+}
+
+.wrapper{
+	min-height: 100%;
+	width: 100%;
+	overflow: hidden;
+	margin: 0 auto;
+	//for footer
+	display: flex;
+	flex-direction: column;
+}
+
+._container{max-width: $maxWidthContainer; margin: 0 auto;width: 100%;padding: 0 0px;
+	@media (max-width: ($md1+px)){max-width: 970px;}
+	@media (max-width: ($md2+px)){max-width: 750px;}
+	@media (max-width: ($md3+px)){max-width: none;padding: 0 10px;}
+}
+
+main {
+	flex: 1 1 auto;
+  padding: 0px 0px 0px 0px;
+  letter-spacing: 1.1px;
+  @media (max-width: 997px){
+    padding: 0px 0px 0px 0px;
+  }
+}
+
+.page {
+	margin: 80px 0px 0px 0px;
+	@media (max-width: ($md3+px)){
+		margin: 60px 0px 0px 0px;
+	}
+}
