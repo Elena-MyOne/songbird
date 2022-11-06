@@ -1,0 +1,67 @@
+.footer {
+  @include btnDef();
+  padding: 20px 0px;
+  height: 10vh;
+  color: $bgc;
+  font-weight: 500;
+  font-size: 1.2em;
+  line-height: 120%;
+  @media (max-width: 1350px) {
+    padding: 10px 0px;
+  }
+  @media (max-width: ($md3+px)){
+    font-size: 1em;
+  }
+
+  &__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__year {
+    margin: 0px 100px 0px 0px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    a {
+      color: inherit;
+    }
+    &:hover{
+      opacity: 0.9;
+    }
+    @media (max-width: ($md3+px)){
+      margin: 0px 40px 0px 0px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__icon {
+    cursor: pointer;
+    &:hover{
+      opacity: 0.8;
+    }
+    &:first-child{
+      margin: 0px 100px 0px 0px;
+      @media (max-width: ($md3+px)){
+        margin: 0px 40px 0px 0px;
+      }
+      @media (max-width: ($md4+px)){
+        margin: 0px 20px 0px 0px;
+      }
+    }
+  }
+}
+.rs-icon {
+  width: 120px;
+  height: 40px;
+  @media (max-width: ($md4+px)){
+    width: 90px;
+    height: 30px;
+  }
+}

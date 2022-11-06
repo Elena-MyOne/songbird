@@ -26,8 +26,7 @@ $mainColor: #f3e8dd;
 
 
 @mixin btnDef() {
-  background: linear-gradient(113.96deg, #03a9f4 1.49%, #f441a5 101.44%);
-  border-radius: 25px;
+  background: linear-gradient(113.96deg, #f441a5  1.49%, #03a9f4 101.44%);
 }
 
 //=========================================
@@ -36,7 +35,7 @@ html {
 }
 body{
   color: $mainColor;
-  background: linear-gradient(113.96deg, $bgc, #181818 101.44%);;
+  background: linear-gradient(113.96deg, $bgc, #111111 101.44%);;
   font-family: $fontfamily;
   @media (max-width: ($md3+px)){
     &.lock{
@@ -81,3 +80,4 @@ main {
 @import "ui.scss";
 @import "menu.scss";
 @import "main.scss";
+@import "footer.scss";
