@@ -1,0 +1,66 @@
+.main {
+  width: 100%;
+  background: url('../assets/images/2.png') 100% 50%  no-repeat;
+  @media (max-width: 1350px) {
+    background: url('../assets/images/2.png') 100% 50% / 600px no-repeat;
+  }
+  @media (max-width: ($md3+px)) {
+    background: url('../assets/images/2.png') 100% 100% / 300px no-repeat;
+  }
+
+  &__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0px 10px;
+  }
+
+  &__column {
+    flex: 1 0 50%;
+    @media (max-width: ($md3+px)) {
+      flex: 1 1 auto;
+    }
+  }
+
+	&__title {
+    font-size: 4em;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    @media (max-width: 1350px) {
+      font-size: 2.5em;
+    }
+	}
+
+	&__rules {
+    font-size: 1.3em;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    line-height: 130%;
+    p {
+      &:not(:last-child) {
+        padding:  0px 0px 20px 0px;
+      }
+    }
+    @media (max-width: 1350px) {
+      font-size: 1em;
+    }
+	}
+
+	&__start {
+    margin:  50px 0px 0px 0px;
+    @media (max-width: ($md3+px)){
+      margin: 40px 0px 0px 0px;
+    }
+	}
+}
+
+.page {
+  opacity: 0;
+  transition: all 0.8s ease 0s;
+}
+
+.page._active-scroll {
+	transition: all 0.8s ease 0s;
+	opacity: 1;
+}

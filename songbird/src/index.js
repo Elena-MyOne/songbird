@@ -1,5 +1,6 @@
 import './styles/style.scss';
 import { headerBody } from './models/menu';
+import { animItems } from './models/scrollAnimation';
 
 // import json from './assets/json.json'  //for json files import
 

@@ -18,15 +18,15 @@ $fontfamily: Roboto;
 $fontSize: 14;
 
 //colors
-$green: #00A97f;
-$orange: #eb9648;
-$bgc: #2b3136;
+$blue: #03a9f4;
+$pink: #f441a5;
+$bgc: #1f1e1e;
 $grey: #eee9e9;
-$mainColor: #fff8f0;
+$mainColor: #f3e8dd;
 
 
 @mixin btnDef() {
-  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  background: linear-gradient(113.96deg, #03a9f4 1.49%, #f441a5 101.44%);
   border-radius: 25px;
 }
 
@@ -36,7 +36,7 @@ html {
 }
 body{
   color: $mainColor;
-  background-color: $bgc;
+  background: linear-gradient(113.96deg, $bgc, #181818 101.44%);;
   font-family: $fontfamily;
   @media (max-width: ($md3+px)){
     &.lock{
@@ -78,4 +78,6 @@ main {
 }
 
 @import "reset.scss";
+@import "ui.scss";
 @import "menu.scss";
+@import "main.scss";
