@@ -1,0 +1,15 @@
+.score {
+  color: inherit;
+  font-size: 1.5em;
+  @media (max-width: ($md3+px)) {
+    font-size: 1em;
+  }
+  
+  &__body {
+    border-radius: 10px 10px 0 0;
+    padding: 20px 20px;
+  }
+
+  &__score {
+  }
+}

@@ -1,0 +1,29 @@
+.questions {
+
+  &__body {
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    flex: 1 0 16.666%;
+    padding: 12px 10px;
+    background-color: $pink60;
+    @media (max-width: ($md2+px)) {
+      flex: 1 0 33.333%;
+    }
+    @media (max-width: ($md4+px)) {
+      flex: 1 0 50%;
+    }
+  }
+}
+
+.questions__item._active {
+  background-color: $pinkActive;
+}

@@ -20,6 +20,9 @@ $fontSize: 14;
 //colors
 $blue: #03a9f4;
 $pink: #f441a5;
+$pink60: rgba(244, 65, 165, 0.6);
+$pinkActive: #C953B3;
+$yellow: #ffeb3b;
 $bgc: #1f1e1e;
 $grey: #eee9e9;
 $mainColor: #f3e8dd;
@@ -35,7 +38,8 @@ html {
 }
 body{
   color: $mainColor;
-  background: linear-gradient(113.96deg, $bgc, #111111 101.44%);;
+  // background: linear-gradient(113.96deg, $bgc, #0A2C45 101.44%);
+  background: $bgc;
   font-family: $fontfamily;
   @media (max-width: ($md3+px)){
     &.lock{
@@ -80,4 +84,9 @@ main {
 @import "ui.scss";
 @import "menu.scss";
 @import "main.scss";
+@import "game.scss";
+@import "score.scss";
+@import "questions.scss";
+@import "player.scss";
+@import "answers.scss";
 @import "footer.scss";

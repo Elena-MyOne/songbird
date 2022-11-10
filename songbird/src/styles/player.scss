@@ -1,0 +1,164 @@
+.player {
+  margin: 20px 10px;
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    border: 1px solid rgb(63, 63, 63);
+    border-radius: 10px;
+    background-color: rgba(63, 63, 63, 0.2);
+    @media (max-width: ($md3+px)) {
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__column {
+    &:last-child{
+      flex: 1 1 auto;
+      padding:  0px 0px 0px 40px;
+      @media (max-width: ($md3+px)) {
+        padding:  0px 0px 0px 10px;
+      }
+    }
+    @media (max-width: ($md3+px)) {
+      flex: 1 1 auto;
+    }
+  }
+
+  &__image {
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+    @media (max-width: ($md3+px)) {
+      margin: 0px 0px 10px 0px;
+    }
+  }
+
+  &__items {
+  }
+
+  &__item {
+  }
+
+  &__title {
+    font-size: 1.3em;
+    padding: 10px 10px;
+    border-bottom: 1px solid rgb(63, 63, 63);
+  }
+
+  &__subtitle {
+    font-size: 1em;
+    padding: 10px 10px;
+    border-bottom: 1px solid rgb(63, 63, 63);
+  }
+
+  &__player {
+    padding: 10px 0px;
+  }
+
+  &__volume {
+  }
+}
+
+.audio-player {
+
+  &__controls {
+    display: flex;
+  }
+
+  &__play {
+    margin: 0px 20px 0px 0px;
+  }
+
+  &__progress-container {
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background-color: #555;
+    margin:  20px 0px 0px 0px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  &__progress {
+    @include btnDef();
+    border-radius: 5px;
+    height: 5px;
+    width: 0%;
+  }
+
+  &__circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #555;
+    transform: translateY(-10px);
+    cursor: pointer;
+  }
+
+  &__time {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85em;
+  }
+
+  &__time-current {
+    padding:  0px 0px 0px 70px;
+  }
+
+  &__time-duration {
+  }
+}
+
+.volume {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 250px;
+  margin: 0 auto;
+
+  &__cotainer {
+    width: 150px;
+    height: 5px;
+    border-radius: 5px;
+    margin: 0px 10px;
+    order: 2;
+    background-color: #555;
+  }
+
+  &__progress {
+    @include btnDef();
+    border-radius: 5px;
+    height: 5px;
+    width: 0%;
+  }
+
+  &__down {
+    order: 1;
+  }
+
+  &__up {
+    order: 3;
+  }
+
+  &__circle {
+    width: 16px;
+    height: 16px;
+    background-color: #555;
+    border-radius: 50%;
+    transform: translateY(-10px);
+    cursor: pointer;
+  }
+}
+
+.player-icon {
+  img {
+    width: 30px;
+  }
+}
