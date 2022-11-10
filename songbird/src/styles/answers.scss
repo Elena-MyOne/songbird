@@ -42,6 +42,15 @@
     background-color: rgba(63, 63, 63, 0.75);
     margin:  0px 10px 0px 0px;
   }
+
+  &__text {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    p {
+      padding:  0px 0px 10px 0px;
+    }
+  }
 }
 
 .player-answers {
@@ -49,12 +58,6 @@
   height: 329px;
   @media (max-width: ($md3+px)) {
     height: auto;
-  }
-
-  &__text {
-    p {
-      padding:  0px 0px 10px 0px;
-    }
   }
 
   &__body {
