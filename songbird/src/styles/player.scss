@@ -72,13 +72,21 @@
   }
 
   &__play {
+    flex: 0 0 48px;
     margin: 0px 20px 0px 0px;
+    background: url('../assets/images/icons/play.svg');
+    width: 48px;
+    height: 48px;
+    transition: background 0.3s ease 0s;
+    &:hover{
+      background: url('../assets/images/icons/playHover.svg');
+    }
   }
 
   &__progress-container {
     position: relative;
     width: 100%;
-    height: 5px;
+    height: 8px;
     background-color: #555;
     margin:  20px 0px 0px 0px;
     cursor: pointer;
@@ -88,17 +96,8 @@
   &__progress {
     @include btnDef();
     border-radius: 5px;
-    height: 5px;
+    height: 8px;
     width: 0%;
-  }
-
-  &__circle {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: #555;
-    transform: translateY(-10px);
-    cursor: pointer;
   }
 
   &__time {
@@ -125,7 +124,7 @@
 
   &__cotainer {
     width: 150px;
-    height: 5px;
+    height: 8px;
     border-radius: 5px;
     margin: 0px 10px;
     order: 2;
@@ -135,30 +134,37 @@
   &__progress {
     @include btnDef();
     border-radius: 5px;
-    height: 5px;
-    width: 0%;
+    height: 8px;
+    width: 50%;
   }
 
   &__down {
     order: 1;
+    background: url('../assets/images/icons/volume_down.svg') 0 0 /contain no-repeat;
+    &:hover{
+      background: url('../assets/images/icons/volume_downHover.svg') 0 0 /contain no-repeat;
+    }
   }
 
   &__up {
     order: 3;
-  }
-
-  &__circle {
-    width: 16px;
-    height: 16px;
-    background-color: #555;
-    border-radius: 50%;
-    transform: translateY(-10px);
-    cursor: pointer;
+    background: url('../assets/images/icons/volume_up.svg') 0 0 /contain no-repeat;
+    &:hover{
+      background: url('../assets/images/icons/volume_upHover.svg') 0 0 /contain no-repeat;
+    }
   }
 }
 
 .player-icon {
-  img {
-    width: 30px;
-  }
+  height: 30px;
+  width: 30px;
+  transition: background 0.3s ease 0s;
+}
+
+.audio-player__play.pause {
+  background: url('../assets/images/icons/pause.svg');
+  transition: background 0.3s ease 0s;
+    &:hover{
+      background: url('../assets/images/icons/pauseHover.svg');
+    }
 }
