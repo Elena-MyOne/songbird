@@ -161,4 +161,4 @@ volumeUp.addEventListener('click', () => {
   setVolumeUp(volumeContainer, volumeProgress, audio);
 });
 
-export { birdsWarmUp, chooseBird, isPlay, startAudio, setTimeDuration, pauseAudio, setVolumeUp, setVolumeDown };
+export { audio, birdsWarmUp, chooseBird, isPlay, startAudio, setTimeDuration, pauseAudio, setVolumeUp, setVolumeDown, randomBird, endAudio };

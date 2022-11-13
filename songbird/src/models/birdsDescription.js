@@ -1,10 +1,7 @@
 import { level, birdsWarmUp, birdsPasserines, birdsForest, birdsSongbirds, birdsPredators, birdsSea } from './levels';
+import { answersList, playerAnswers, answersText } from './answers';
 import { isPlay, startAudio, setTimeDuration, pauseAudio, setVolumeUp, setVolumeDown } from './player';
 import { randomNum, getTimeCodeFromNum } from './functions';
-
-const answersList = document.querySelector('.answers__list');
-const playerAnswers = document.querySelector('.player-answers');
-const answersText = document.querySelector('.answers__text');
 
 const birdImage = document.querySelector('._bird-image');
 const birdTitle = document.querySelector('._bird-title');
@@ -94,8 +91,6 @@ function getBirdObject(currentBird) {
       }
     });
   }
-
-  console.log(bird);
 
   return bird;
 }
