@@ -1,4 +1,5 @@
 import birdsData from './birdsDataEn';
+import { level, birdsWarmUp, birdsPasserines, birdsForest, birdsSongbirds, birdsPredators, birdsSea } from './levels';
 import { randomNum, getTimeCodeFromNum } from './functions';
 
 const playButton = document.querySelector('.audio-player__play');
@@ -11,44 +12,53 @@ const volumeProgress = document.querySelector('.volume__progress');
 const volumeDown = document.querySelector('.volume__down');
 const volumeUp = document.querySelector('.volume__up');
 
-const birdsWarmUp = birdsData[0];
-console.log(birdsWarmUp);
-
 let isPlay = false;
 let currentTimePlay = 0;
 
 const audio = new Audio();
 
 let randomBird = chooseBird();
+
+let birdTrack = randomBird[0].audio;
+let birdDuration = randomBird[0].duration;
 console.log(randomBird);
 
 function chooseBird() {
   let random = randomNum(6);
-  return birdsWarmUp.filter((item) => {
+  let gameLevel;
+
+  if (level === 1) gameLevel = birdsWarmUp;
+  if (level === 2) gameLevel = birdsPasserines;
+  if (level === 3) gameLevel = birdsForest;
+  if (level === 4) gameLevel = birdsSongbirds;
+  if (level === 5) gameLevel = birdsPredators;
+  if (level === 6) gameLevel = birdsSea;
+
+  return gameLevel.filter((item) => {
     if (item.id === random) {
       return item;
     }
   });
 }
 
-function startAudio() {
-  audio.src = randomBird[0].audio;
+function startAudio(audio, birdTrack) {
+  audio.src = birdTrack;
   audio.currentTime = currentTimePlay;
   audio.play();
   isPlay = true;
 }
 
-function pauseAudio() {
+function pauseAudio(audio) {
   audio.pause();
   isPlay = false;
 }
 
 function playAudio() {
   if (isPlay === false) {
-    startAudio();
-    setTimeDuration();
+    startAudio(audio, birdTrack);
+    setTimeDuration(timeDuration, birdDuration);
   } else {
-    pauseAudio();
+    pauseAudio(audio);
     currentTimePlay = audio.currentTime;
   }
 }
@@ -66,8 +76,8 @@ function togglePlayBtn() {
   playButton.classList.toggle('pause');
 }
 
-function setTimeDuration() {
-  timeDuration.textContent = randomBird[0].duration;
+function setTimeDuration(item, birdDuration) {
+  item.textContent = birdDuration;
 }
 
 function setAudioTimeCurrent(e) {
@@ -104,7 +114,7 @@ function setVolumeBar(e) {
   volumeProgress.style.width = `${progressPercent}%`;
 }
 
-function setVolumeDown() {
+function setVolumeDown(volumeContainer, volumeProgress, audio) {
   const volumeBar = volumeContainer.getBoundingClientRect().width;
   const volumeCurrent = volumeProgress.getBoundingClientRect().width;
   let progressPercent = (volumeCurrent / volumeBar) * 100;
@@ -118,7 +128,7 @@ function setVolumeDown() {
   }
 }
 
-function setVolumeUp() {
+function setVolumeUp(volumeContainer, volumeProgress, audio) {
   const volumeBar = volumeContainer.getBoundingClientRect().width;
   const volumeCurrent = volumeProgress.getBoundingClientRect().width;
   let progressPercent = (volumeCurrent / volumeBar) * 100;
@@ -142,7 +152,13 @@ audio.addEventListener('ended', endAudio);
 progressContainer.addEventListener('click', setProgressBar);
 
 volumeContainer.addEventListener('click', setVolumeBar);
-volumeDown.addEventListener('click', setVolumeDown);
-volumeUp.addEventListener('click', setVolumeUp);
 
-export { birdsWarmUp, chooseBird };
+volumeDown.addEventListener('click', () => {
+  setVolumeDown(volumeContainer, volumeProgress, audio);
+});
+
+volumeUp.addEventListener('click', () => {
+  setVolumeUp(volumeContainer, volumeProgress, audio);
+});
+
+export { birdsWarmUp, chooseBird, isPlay, startAudio, setTimeDuration, pauseAudio, setVolumeUp, setVolumeDown };

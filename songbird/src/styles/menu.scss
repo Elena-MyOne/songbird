@@ -144,5 +144,8 @@
 }
 
 .header__link._active-link {
-  color: $pink;
+  color: $blue;
+  &:hover{
+    color: $pink;
+  }
 }

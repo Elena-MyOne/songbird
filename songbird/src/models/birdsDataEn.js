@@ -47,10 +47,10 @@ const birdsData = [
     },
     {
       id: 6,
-      name: 'Tits',
+      name: 'Titmouse',
       species: 'Parus major',
       description: 'There can be more than 40 different sound combinations in the chirping of tits. They sing almost all year round, fading a little only in winter. Tits are taken care about the forest. One pair of tits during the nesting period protects dozens of trees from pests.',
-      image: 'https://live.staticflickr.com//65535//49366042493_c48c81d58d.jpg',
+      image: '../assets/images/answers/titmouse.jpg',
       audio: 'https://www.xeno-canto.org/sounds/uploaded/RFGQDPLDEC/XC518417-Kj%C3%B8ttmeis%20XC%20Helg%C3%B8ya%20Elias%20A.%20Ryberg20200108133922_079.mp3',
       duration: '01:35',
     },

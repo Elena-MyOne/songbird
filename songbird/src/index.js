@@ -3,6 +3,7 @@ import { headerBody } from './models/menu';
 import { animItems } from './models/scrollAnimation';
 
 import { birdsWarmUp, chooseBird } from './models/player';
+import { answersList, playerAnswers } from './models/birdsDescription';
 
 import { showMessage } from './models/cross-check';
 

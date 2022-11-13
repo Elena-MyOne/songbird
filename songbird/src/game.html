@@ -94,6 +94,7 @@
             </ul>
           </div>
           <div class="answers__body">
+    
             <div class="answers__text">
               <p>Listen to a melody to the player on top.</p>
               <p>Then choose a bird from the list</p>
@@ -101,48 +102,44 @@
             <div class="answers__player player-answers" hidden>
               <div class="player-answers__body">
                 <div class="player__column">
-                  <div class="player__image"><img src="./assets/images/shadow_bird.png" alt="bird in shadow"></div>
+                  <div class="player__image"><img class="_bird-image" src="./assets/images/shadow_bird.png" alt="bird image"></div>
                 </div>
                 <div class="player__column">
                   <ul class="player__items">
                     <li class="player__item">
-                      <h2 class="player__title">Raven</h2>
+                      <h2 class="player__title _bird-title"></h2>
                     </li>
                     <li class="player__item">
-                      <h2 class="player__subtitle">Corvus corax</h2>
+                      <h3 class="player__subtitle _bird-subtitle"></h3>
                     </li>
                     <li class="player__item">
                       <div class="player__player audio-player">
                         <div class="audio-player__controls">
-                          <div class="audio-player__play"><img src="./assets/images/icons/play.svg" alt="play"></div>
-                          <div class="audio-player__progress-container">
-                            <div class="audio-player__progress"></div>
-                            <div class="audio-player__circle"></div>
+                          <div class="audio-player__play _bird-play"></div>
+                          <div class="audio-player__progress-container _bird-progress-container">
+                            <div class="audio-player__progress _bird-progress"></div>
                           </div>
                         </div>
                         <div class="audio-player__time">
-                          <div class="audio-player__time-current">00:00</div>
-                          <div class="audio-player__time-duration">00:00</div>
+                          <div class="audio-player__time-current _bird-time-current">00:00</div>
+                          <div class="audio-player__time-duration _bird-time-duration">00:00</div>
                         </div>
                       </div>
                     </li>
                     <li class="player__item">
                       <div class="player__volume volume">
-                        <div class="volume__cotainer">
-                          <div class="volume__progress"></div>
-                          <div class="volume__circle"></div>
+                        <div class="volume__cotainer _bird-volume-container">
+                          <div class="volume__progress _bird-volume-progress"></div>
                         </div>
-                        <div class="volume__down player-icon"><img src="./assets/images/icons/volume_down.svg" alt="volume down"></div>
-                        <div class="volume__up player-icon"><img src="./assets/images/icons/volume_up.svg" alt="volume up"></div>
+                        <div class="volume__down player-icon _bird-down"></div>
+                        <div class="volume__up player-icon _bird-up"></div>
                       </div>
                     </li>
                   </ul>
                 </div>
               </div>
 
-              <div class="player-answers__description">
-                <p>Raven is a large bird. The body length reaches 70 centimeters, the wingspan is up to one and a half meters. Ravens inhabit the vicinity of the Tower. There is a belief in England that the day the black crows fly away from the Tower, the monarchy will collapse.</p>
-              </div>
+              <div class="player-answers__description _bird-description"></div>
             </div>
           </div>
         </div>
