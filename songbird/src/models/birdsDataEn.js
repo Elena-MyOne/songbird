@@ -85,9 +85,9 @@ const birdsData = [
     },
     {
       id: 4,
-      name: 'Drozd',
+      name: 'Songthrush',
       species: 'Turdus philomelos',
-      description: 'Drozd is the best singer from the sparrow squad. The song consists only of beautiful sound whistles and various tracks. all it can be heard in the morning and evening. Thrushes sing throughout the entire nesting period.',
+      description: 'Songthrush is the best singer from the sparrow squad. The song consists only of beautiful sound whistles and various tracks. all it can be heard in the morning and evening. Thrushes sing throughout the entire nesting period.',
       image: 'https://live.staticflickr.com/65535/48979125763_e2534f54bd.jpg',
       audio: 'https://www.xeno-canto.org/sounds/uploaded/BLMSIUFTFU/XC513326-190704_1146_TF-Glogow.mp3',
       duration: '03:46',
@@ -291,9 +291,9 @@ const birdsData = [
     },
     {
       id: 2,
-      name: 'Blue booby',
+      name: 'Gannet',
       species: 'Sula nebouxii',
-      description: 'A feature of the blue booby is the rich bright blue color of the legs. It is legs are also very warm. While other species of birds warm the clutches with their bodies, the blue-footed booby does this with the help of its paws.',
+      description: 'A feature of the blue-footed gannet is the rich bright blue color of the legs. It is legs are also very warm. While other species of birds warm the clutches with their bodies, the blue-footed booby does this with the help of its paws.',
       image: 'https://live.staticflickr.com/800/40645471394_4422e69ed8.jpg',
       audio: 'https://www.xeno-canto.org/sounds/uploaded/YHKQPPJDVP/XC411507-171217_1491%20BF%20Booby%205ft%20IDLP%201230%20mp3%20amp.mp3',
       duration: '00:12',
