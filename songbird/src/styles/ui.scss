@@ -55,3 +55,22 @@
   opacity: 1;
   animation: animate 8s linear infinite;
 }
+
+.button-disabled {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: 55px;
+  text-align: center;
+  line-height: 55px;
+  color: #979595;
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 30px;
+  border: 1px solid #3f3f3f;
+  background-color: rgba(63, 63, 63, 0.2);
+  transition: all 0.3s ease 0s;
+  &:hover{
+    border: 1px solid #747272;
+  }
+}

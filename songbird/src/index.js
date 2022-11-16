@@ -2,7 +2,8 @@ import './styles/style.scss';
 import { headerBody } from './models/menu';
 import { animItems } from './models/scrollAnimation';
 
-import { birdsWarmUp, chooseBird } from './models/player';
+import { nextLevelBtn, setActiveButton, setDisabledButton, randomBird, chooseBird } from './models/nextLevel';
+import { birdsWarmUp } from './models/player';
 import { answersList, playerAnswers } from './models/birdsDescription';
 
 import { showMessage } from './models/cross-check';

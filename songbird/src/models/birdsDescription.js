@@ -1,4 +1,4 @@
-import { level, birdsWarmUp, birdsPasserines, birdsForest, birdsSongbirds, birdsPredators, birdsSea } from './levels';
+import { getGameLevel, birdsWarmUp, birdsPasserines, birdsForest, birdsSongbirds, birdsPredators, birdsSea } from './levels';
 import { answersList, playerAnswers, answersText } from './answers';
 import { isPlay, startAudio, setTimeDuration, pauseAudio, setVolumeUp, setVolumeDown } from './player';
 import { randomNum, getTimeCodeFromNum } from './functions';
@@ -29,7 +29,7 @@ function showBirdInfo(e) {
   playerAnswers.removeAttribute('hidden');
   answersText.setAttribute('hidden', '');
 
-  const target = e.target.closest('.answers__item');
+  const target = e.target.closest('.answers__bird');
 
   if (target) {
     let bird = target.textContent;
@@ -44,7 +44,7 @@ function showBirdInfo(e) {
 function getBirdObject(currentBird) {
   let bird;
 
-  if (level === 1) {
+  if (getGameLevel() === 1) {
     birdsWarmUp.forEach((item) => {
       if (currentBird === item.name) {
         return (bird = item);
@@ -52,7 +52,7 @@ function getBirdObject(currentBird) {
     });
   }
 
-  if (level === 2) {
+  if (getGameLevel() === 2) {
     birdsPasserines.forEach((item) => {
       if (currentBird === item.name) {
         return (bird = item);
@@ -60,7 +60,7 @@ function getBirdObject(currentBird) {
     });
   }
 
-  if (level === 3) {
+  if (getGameLevel() === 3) {
     birdsForest.forEach((item) => {
       if (currentBird === item.name) {
         return (bird = item);
@@ -68,7 +68,7 @@ function getBirdObject(currentBird) {
     });
   }
 
-  if (level === 4) {
+  if (getGameLevel() === 4) {
     birdsSongbirds.forEach((item) => {
       if (currentBird === item.name) {
         return (bird = item);
@@ -76,7 +76,7 @@ function getBirdObject(currentBird) {
     });
   }
 
-  if (level === 5) {
+  if (getGameLevel() === 5) {
     birdsPredators.forEach((item) => {
       if (currentBird === item.name) {
         return (bird = item);
@@ -84,7 +84,7 @@ function getBirdObject(currentBird) {
     });
   }
 
-  if (level === 6) {
+  if (getGameLevel() === 6) {
     birdsSea.forEach((item) => {
       if (currentBird === item.name) {
         return (bird = item);

@@ -1,5 +1,6 @@
 import birdsData from './birdsDataEn';
-import { level, birdsWarmUp, birdsPasserines, birdsForest, birdsSongbirds, birdsPredators, birdsSea } from './levels';
+import { level, nextLevelBtn } from './nextLevel';
+import { getGameLevel, createBirdsList, birdsWarmUp } from './levels';
 import { randomNum, getTimeCodeFromNum } from './functions';
 
 const playButton = document.querySelector('.audio-player__play');
@@ -17,31 +18,19 @@ let currentTimePlay = 0;
 
 const audio = new Audio();
 
-let randomBird = chooseBird();
+let randomBird = createBirdsList();
 
-let birdTrack = randomBird[0].audio;
-let birdDuration = randomBird[0].duration;
 console.log(randomBird);
 
-function chooseBird() {
-  let random = randomNum(6);
-  let gameLevel;
-
-  if (level === 1) gameLevel = birdsWarmUp;
-  if (level === 2) gameLevel = birdsPasserines;
-  if (level === 3) gameLevel = birdsForest;
-  if (level === 4) gameLevel = birdsSongbirds;
-  if (level === 5) gameLevel = birdsPredators;
-  if (level === 6) gameLevel = birdsSea;
-
-  return gameLevel.filter((item) => {
-    if (item.id === random) {
-      return item;
-    }
-  });
+function getBirdTrack() {
+  return randomBird[getGameLevel() - 1].audio;
 }
 
-function startAudio(audio, birdTrack) {
+function getBirdDuration() {
+  return randomBird[getGameLevel() - 1].duration;
+}
+
+function startAudio(audio, birdTrack = getBirdTrack()) {
   audio.src = birdTrack;
   audio.currentTime = currentTimePlay;
   audio.play();
@@ -55,8 +44,10 @@ function pauseAudio(audio) {
 
 function playAudio() {
   if (isPlay === false) {
-    startAudio(audio, birdTrack);
-    setTimeDuration(timeDuration, birdDuration);
+    // startAudio(audio, birdTrack);
+    startAudio(audio, getBirdTrack());
+    // setTimeDuration(timeDuration, birdDuration);
+    setTimeDuration(timeDuration, getBirdDuration());
   } else {
     pauseAudio(audio);
     currentTimePlay = audio.currentTime;
@@ -76,7 +67,11 @@ function togglePlayBtn() {
   playButton.classList.toggle('pause');
 }
 
-function setTimeDuration(item, birdDuration) {
+function setPlayBtn() {
+  playButton.classList.remove('pause');
+}
+
+function setTimeDuration(item, birdDuration = getBirdDuration()) {
   item.textContent = birdDuration;
 }
 
@@ -161,4 +156,4 @@ volumeUp.addEventListener('click', () => {
   setVolumeUp(volumeContainer, volumeProgress, audio);
 });
 
-export { audio, birdsWarmUp, chooseBird, isPlay, startAudio, setTimeDuration, pauseAudio, setVolumeUp, setVolumeDown, randomBird, endAudio };
+export { audio, birdsWarmUp, isPlay, startAudio, setTimeDuration, pauseAudio, setVolumeUp, setVolumeDown, randomBird, endAudio, togglePlayBtn, setPlayBtn };
