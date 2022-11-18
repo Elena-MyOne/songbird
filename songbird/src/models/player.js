@@ -2,6 +2,7 @@ import birdsData from './birdsDataEn';
 import { level, nextLevelBtn } from './nextLevel';
 import { getGameLevel, createBirdsList, birdsWarmUp } from './levels';
 import { randomNum, getTimeCodeFromNum } from './functions';
+import { headerLinks } from './menu';
 
 const playButton = document.querySelector('.audio-player__play');
 const timeDuration = document.querySelector('.audio-player__time-duration');
@@ -137,23 +138,25 @@ function setVolumeUp(volumeContainer, volumeProgress, audio) {
   }
 }
 
-playButton.addEventListener('click', playAudio);
-playButton.addEventListener('click', togglePlayBtn);
+if (headerLinks[1].classList.contains('_active-link')) {
+  playButton.addEventListener('click', playAudio);
+  playButton.addEventListener('click', togglePlayBtn);
 
-audio.addEventListener('timeupdate', updateProgressBar);
+  audio.addEventListener('timeupdate', updateProgressBar);
 
-audio.addEventListener('ended', endAudio);
+  audio.addEventListener('ended', endAudio);
 
-progressContainer.addEventListener('click', setProgressBar);
+  progressContainer.addEventListener('click', setProgressBar);
 
-volumeContainer.addEventListener('click', setVolumeBar);
+  volumeContainer.addEventListener('click', setVolumeBar);
 
-volumeDown.addEventListener('click', () => {
-  setVolumeDown(volumeContainer, volumeProgress, audio);
-});
+  volumeDown.addEventListener('click', () => {
+    setVolumeDown(volumeContainer, volumeProgress, audio);
+  });
 
-volumeUp.addEventListener('click', () => {
-  setVolumeUp(volumeContainer, volumeProgress, audio);
-});
+  volumeUp.addEventListener('click', () => {
+    setVolumeUp(volumeContainer, volumeProgress, audio);
+  });
+}
 
 export { audio, birdsWarmUp, isPlay, startAudio, setTimeDuration, pauseAudio, setVolumeUp, setVolumeDown, randomBird, endAudio, togglePlayBtn, setPlayBtn };

@@ -23,4 +23,4 @@ headerList.addEventListener('click', function (event) {
   }
 });
 
-export { headerBurger };
+export { headerBurger, headerLinks };

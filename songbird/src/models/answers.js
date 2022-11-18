@@ -1,16 +1,14 @@
 import birdsData from './birdsDataEn';
+import { headerLinks } from './menu';
 import { getGameLevel } from './levels';
 import { randomBird, audio, pauseAudio, endAudio, setPlayBtn } from './player';
-import { level, nextLevelBtn, setActiveButton, setDisabledButton } from './nextLevel';
+import { level, nextLevelBtn, setActiveButton, setDisabledButton, updateNextButton, setWrongAnswers, countWrongAnswers } from './nextLevel';
 
 const answersList = document.querySelector('.answers__list');
 const playerAnswers = document.querySelector('.player-answers');
 const answersText = document.querySelector('.answers__text');
 const topPlayerImage = document.querySelector('.image__img');
 const topPlayerBirdName = document.querySelector('.player__title');
-
-// let rightAnswer = randomBird[0].name;
-// let rightAnswerImage = randomBird[0].image;
 
 function hideBirdInfo() {
   answersText.removeAttribute('hidden');
@@ -39,7 +37,10 @@ function setAnswersMark(e) {
     if (choseAnswer !== getRightAnswer()) {
       targetMark.style.backgroundColor = '#d43434';
       wrongAnswerAudio.play();
+      setWrongAnswers(targetMark);
     } else {
+      updateNextButton();
+
       targetMark.style.backgroundColor = '#00a980';
 
       pauseAudio(audio);
@@ -52,6 +53,7 @@ function setAnswersMark(e) {
       showTopPlayerBirdName();
 
       setActiveButton(nextLevelBtn);
+      countWrongAnswers();
 
       answersList.removeEventListener('click', setAnswersMark);
     }
@@ -65,7 +67,6 @@ function resetAnswersMark() {
 function showTopImage() {
   topPlayerImage.removeAttribute('src');
   topPlayerImage.setAttribute('src', getRightAnswerImage());
-  // topPlayerImage.setAttribute('src', rightAnswerImage);
 }
 
 function showTopPlayerBirdName() {
@@ -88,14 +89,12 @@ function resetTargetMark() {
   const marks = document.querySelectorAll('.answers__mark');
   marks.forEach((item) => {
     item.style.backgroundColor = 'rgba(63, 63, 63, 0.75)';
+    item.classList.remove('_wrong-answer');
   });
 }
-//=================================================================
 
 function updateQuestionItems() {
   const targetItems = Array.from(document.querySelectorAll('.answers__bird'));
-
-  // if(getGameLevel() )
 
   for (let i = 0; i < targetItems.length; i++) {
     targetItems[i].textContent = birdsData[getGameLevel() - 1][i].name;
@@ -110,8 +109,8 @@ function resetQuestionItems() {
   }
 }
 
-//==================================================================
-
-answersList.addEventListener('click', setAnswersMark);
+if (headerLinks[1].classList.contains('_active-link')) {
+  answersList.addEventListener('click', setAnswersMark);
+}
 
 export { answersList, playerAnswers, answersText, resetTopImage, resetTopPlayerBirdName, hideBirdInfo, resetTargetMark, updateQuestionItems, resetAnswersMark, resetQuestionItems };

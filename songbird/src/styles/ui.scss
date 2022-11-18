@@ -56,6 +56,13 @@
   animation: animate 8s linear infinite;
 }
 
+.button a {
+  display: block;
+  color: $mainColor;
+  width: 100%;
+  height: 100%;
+}
+
 .button-disabled {
   position: relative;
   display: inline-block;

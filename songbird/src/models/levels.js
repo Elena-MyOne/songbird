@@ -34,15 +34,6 @@ function resetGameLevel() {
   return level;
 }
 
-// console.log(getGameLevel());
-
-// console.log(birdsWarmUp);
-// console.log(birdsPasserines);
-// console.log(birdsForest);
-// console.log(birdsSongbirds);
-// console.log(birdsPredators);
-// console.log(birdsSea);
-
 function createBirdsList() {
   let birds = birdsData.map((item) => {
     let random = randomNum(6);

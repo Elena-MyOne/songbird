@@ -11,7 +11,11 @@
 
   &__column {
     flex: 0 1 50%;
+    padding: 30px 25px;
     text-align: center;
+    background-color: rgba(63, 63, 63, 0.2);
+    border: 1px solid #3f3f3f;
+    border-radius: 10px;
     @media (max-width: ($md3+px)) {
       flex: 1 1 auto;
     }
@@ -19,6 +23,7 @@
 
 	&__title {
     font-family: Caveat;
+    margin: 0px 0px 30px 0px;
     font-size: 4em;
     font-weight: 400;
     letter-spacing: 1.5px;
@@ -43,7 +48,7 @@
 	}
 
 	&__start {
-    margin:  50px 0px 0px 0px;
+    margin:  40px 0px 0px 0px;
     @media (max-width: ($md3+px)){
       margin: 40px 0px 0px 0px;
     }

@@ -1,3 +1,4 @@
+import { headerLinks } from './menu';
 import { getGameLevel, birdsWarmUp, birdsPasserines, birdsForest, birdsSongbirds, birdsPredators, birdsSea } from './levels';
 import { answersList, playerAnswers, answersText } from './answers';
 import { isPlay, startAudio, setTimeDuration, pauseAudio, setVolumeUp, setVolumeDown } from './player';
@@ -188,18 +189,20 @@ function toggleBirdPlayBtn() {
   birdPlay.classList.toggle('pause');
 }
 
-answersList.addEventListener('click', showBirdInfo);
-birdPlay.addEventListener('click', toggleBirdPlayBtn);
-currentAudio.addEventListener('timeupdate', updateProgressBarCurrent);
-progressContainerCurrent.addEventListener('click', setProgressBarCurrent);
-currentAudio.addEventListener('ended', endAudioCurrent);
+if (headerLinks[1].classList.contains('_active-link')) {
+  answersList.addEventListener('click', showBirdInfo);
+  birdPlay.addEventListener('click', toggleBirdPlayBtn);
+  currentAudio.addEventListener('timeupdate', updateProgressBarCurrent);
+  progressContainerCurrent.addEventListener('click', setProgressBarCurrent);
+  currentAudio.addEventListener('ended', endAudioCurrent);
 
-birdVolumeDown.addEventListener('click', () => {
-  setVolumeDown(birdVolumeContainer, birdVolumeProgress, currentAudio);
-});
+  birdVolumeDown.addEventListener('click', () => {
+    setVolumeDown(birdVolumeContainer, birdVolumeProgress, currentAudio);
+  });
 
-birdVolumeUp.addEventListener('click', () => {
-  setVolumeUp(birdVolumeContainer, birdVolumeProgress, currentAudio);
-});
+  birdVolumeUp.addEventListener('click', () => {
+    setVolumeUp(birdVolumeContainer, birdVolumeProgress, currentAudio);
+  });
+}
 
 export { answersList, playerAnswers };
