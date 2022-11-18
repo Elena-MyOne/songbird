@@ -7,3 +7,5 @@ import { birdsWarmUp } from './models/player';
 import { answersList, playerAnswers } from './models/birdsDescription';
 
 import { showMessage } from './models/cross-check';
+
+// showMessage();

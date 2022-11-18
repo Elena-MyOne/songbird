@@ -23,8 +23,8 @@ function getRightAnswerImage() {
   return randomBird[getGameLevel() - 1].image;
 }
 
-const rightAnswerAudio = new Audio('../assets/audio/right.mp3');
-const wrongAnswerAudio = new Audio('../assets/audio/wrong.mp3');
+const rightAnswerAudio = new Audio('./assets/audio/right.mp3');
+const wrongAnswerAudio = new Audio('./assets/audio/wrong.mp3');
 
 function setAnswersMark(e) {
   const targetItem = e.target.closest('.answers__item');
