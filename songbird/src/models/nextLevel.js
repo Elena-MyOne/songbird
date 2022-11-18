@@ -2,7 +2,8 @@ import { randomNum, getTimeCodeFromNum } from './functions';
 import { headerLinks } from './menu';
 import { level, getGameLevel, resetGameLevel, createBirdsList } from './levels';
 import { resetTopImage, resetTopPlayerBirdName, hideBirdInfo, resetTargetMark, updateQuestionItems, resetAnswersMark, resetQuestionItems } from './answers';
-import { randomBird, resetRandomBird } from './player';
+import { randomBird, resetRandomBird, endAudio, pauseAudio, audio } from './player';
+import { currentAudio } from './birdsDescription';
 
 const nextLevelBtn = document.querySelector('.next__button');
 const questionsItems = document.querySelectorAll('.questions__item');
@@ -43,16 +44,17 @@ function resetGame() {
 
 function goNextLevel() {
   if (nextLevelBtn.classList.contains('button')) {
-    // countWrongAnswers();
     scoreItem.textContent = `${score}`;
+    pauseAudio(audio);
+    pauseAudio(currentAudio);
 
     if (getGameLevel() === 6) {
-      // resetGame();
       updateNextButton();
     } else {
       setNextLevel(getGameLevel());
     }
   }
+
   setScoreStorage();
 }
 
