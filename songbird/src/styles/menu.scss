@@ -36,7 +36,7 @@
     display: block;
     transition: all 0.3s ease 0s;
     @media (max-width: ($md2+px)){
-      font-size: 1.8em;
+      font-size: 1.5em;
     }
     @media (max-width: ($md3+px)){
       font-size: 1.2em;
@@ -120,7 +120,7 @@
     li{
       margin: 0px 0px 0px 50px;
       &:last-child{
-        margin: -5px 0px 0px 50px;
+        margin: -10px 0px 0px 50px;
       }
     }
     
@@ -130,7 +130,7 @@
         margin: 0px 0px 25px 0px;
         text-align: center;
         &:last-child{
-          width: 80px;
+          width: 64px;
           margin: 0 auto;
         }
       }
