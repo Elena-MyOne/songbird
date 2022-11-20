@@ -26,7 +26,6 @@ const galleryVolumeUp = document.querySelector('._gallery-up');
 const galleryVolumeContainer = document.querySelector('._gallery-volume-container');
 const galleryVolumeProgress = document.querySelector('._gallery-volume-progress');
 
-let counter = 0;
 let currentTimePlay = 0;
 const galleryAudio = new Audio();
 
@@ -37,9 +36,10 @@ const galleryDescriptions = getGalleryDescriptions();
 const galleryAudios = getGalleryAudios();
 const galleryDurations = getGalleryDuration();
 
+let counter = 0;
+
 let galleryCurrentAudio;
 let galleryDuration;
-console.log(galleryAudios);
 
 function getGalleryImages() {
   const result = [];
@@ -153,7 +153,9 @@ function endAudioGallery() {
 }
 
 function switchItemNext() {
-  if (counter === galleryImages.length) counter = 0;
+  if (counter === galleryImages.length - 1) {
+    counter = -1;
+  }
 
   galleryImage.removeAttribute('src');
   galleryImage.setAttribute('src', galleryImages[counter + 1]);
@@ -165,6 +167,23 @@ function switchItemNext() {
   setGalleryAudio(counter);
 
   ++counter;
+
+  console.log(counter);
+}
+
+function switchItemPrev() {
+  if (counter === 0) counter = galleryImages.length;
+
+  galleryImage.removeAttribute('src');
+  galleryImage.setAttribute('src', galleryImages[counter - 1]);
+
+  galleryTitle.textContent = galleryTitles[counter - 1];
+  gallerySubtitle.textContent = gallerySubtitles[counter - 1];
+  galleryDescription.textContent = galleryDescriptions[counter - 1];
+
+  setGalleryAudio(counter);
+
+  --counter;
 
   console.log(counter);
 }
@@ -181,6 +200,7 @@ if (headerLinks[3].classList.contains('_active-link')) {
   progressContainerGallery.addEventListener('click', setProgressBarGallery);
 
   galleryNextBtn.addEventListener('click', switchItemNext);
+  galleryPrevBtn.addEventListener('click', switchItemPrev);
 
   birdPlay.addEventListener('click', toggleBirdPlayBtn);
 
@@ -194,6 +214,3 @@ if (headerLinks[3].classList.contains('_active-link')) {
 }
 
 export { galleryPrevBtn, galleryNextBtn };
-
-// const galleryVolumeDown = document.querySelector('._gallery-down');
-// const galleryVolumeUp = document.querySelector('._gallery-up');
