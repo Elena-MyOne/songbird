@@ -118,13 +118,21 @@
     position: relative;
     z-index: 2;
     li{
-      margin: 0px 0px 0px 60px;
+      margin: 0px 0px 0px 50px;
+      &:last-child{
+        margin: -5px 0px 0px 50px;
+      }
     }
+    
     @media (max-width: ($md3+px)){
       display: block;
       li{
         margin: 0px 0px 25px 0px;
         text-align: center;
+        &:last-child{
+          width: 80px;
+          margin: 0 auto;
+        }
       }
     }
   }
@@ -148,5 +156,83 @@
   color: $blue;
   &:hover{
     color: $pink;
+  }
+}
+
+.header {
+
+  &__checkbox {
+    --width: 64px;
+    --height: 36px;
+    --first-color: rgba(63, 63, 63, 0.2);
+    --offset: 4px;
+    cursor: pointer;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__switcher {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 8px;
+    width: var(--width);
+    height: var(--height);
+    border-radius: var(--width);
+    background-color: var(--first-color);
+    border: 1px solid rgba(3, 168, 244, 0.6);
+    transition: all 0.3s ease 0s;
+    &:hover{
+      border: 1px solid $pink60;
+    }
+    @media (max-width: ($md3+px)) {
+      color:#3f3f3f;
+    }
+    &::before{
+      content: '';
+      position: absolute;
+      top: var(--offset);
+      left: var(--offset);
+      width: 26px;
+      height: 26px;
+      background-color: $blue;
+      border-radius: 50%;
+      transition: all 0.3s ease 0s;
+    }
+  }
+
+  &__lang {
+    color: $mainColor;
+    z-index: 2;
+    &:first-child{
+      color: $bgc;
+      font-weight: 500;
+    }
+  }
+}
+
+.header__switcher:hover::before {
+  background-color: $pink;
+}
+
+.header__input:checked ~ .header__switcher {
+  &::before{
+    content: '';
+    position: absolute;
+    left: calc(var(--width) - var(--height) + var(--offset));
+  }
+}
+
+.header__input:checked ~ .header__switcher > .header__lang {
+  &:first-child{
+    color: $mainColor;
+    font-weight: 400;
+  }
+  &:last-child{
+    color: $bgc;
+    font-weight: 500;
   }
 }
