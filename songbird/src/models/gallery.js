@@ -167,8 +167,6 @@ function switchItemNext() {
   setGalleryAudio(counter);
 
   ++counter;
-
-  console.log(counter);
 }
 
 function switchItemPrev() {
@@ -184,8 +182,6 @@ function switchItemPrev() {
   setGalleryAudio(counter);
 
   --counter;
-
-  console.log(counter);
 }
 
 if (headerLinks[3].classList.contains('_active-link')) {

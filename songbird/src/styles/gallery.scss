@@ -13,6 +13,14 @@
     border-top: $mainColor 2px solid;
     border-left: $mainColor 2px solid;
     transition: all 0.3s ease 0s;
+    @media (max-width: 820px){
+      width: 20px;
+      height: 20px;
+      top: 15%;
+    }
+    @media (max-width: 620px){
+      top: 20%;
+    }
     &:hover{
       border-top: $blue 2px solid;
       border-left: $blue 2px solid;
@@ -22,12 +30,17 @@
   &__prev {
     left: 3%;
     transform: rotate(-45deg);
-    
+    @media (max-width: 820px){
+      left: 4%;
+    }
   }
 
   &__next {
     right: 3%;
     transform: rotate(135deg);
+    @media (max-width: 820px){
+      right: 4%;
+    }
   }
 
 }
