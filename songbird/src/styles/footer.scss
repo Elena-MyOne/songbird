@@ -1,7 +1,7 @@
 .footer {
   @include btnDef();
   padding: 20px 0px;
-  height: 10vh;
+  height: 8vh;
   color: $bgc;
   font-weight: 500;
   font-size: 1.2em;
@@ -14,6 +14,7 @@
   }
 
   &__body {
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -73,6 +73,13 @@ module.exports = {
         collapseWhitespace: isProd,
       },
     }),
+    new HTMLWebpackPlugin({
+      filename: 'gallery.html',
+      template: './gallery.html',
+      minify: {
+        collapseWhitespace: isProd,
+      },
+    }),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       // что копируем, можно указывать целые папки

@@ -1,0 +1,43 @@
+.page-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  &__prev,
+  &__next {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    border-top: $mainColor 2px solid;
+    border-left: $mainColor 2px solid;
+    transition: all 0.3s ease 0s;
+    &:hover{
+      border-top: $blue 2px solid;
+      border-left: $blue 2px solid;
+    }
+  }
+
+  &__prev {
+    left: 3%;
+    transform: rotate(-45deg);
+    
+  }
+
+  &__next {
+    right: 3%;
+    transform: rotate(135deg);
+  }
+
+}
+
+.gallery {
+
+  &__body {
+    max-width: 650px;
+    margin: 0 auto;
+    
+  }
+
+}

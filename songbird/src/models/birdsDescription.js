@@ -1,7 +1,23 @@
 import { headerLinks } from './menu';
-import { getGameLevel, birdsWarmUp, birdsPasserines, birdsForest, birdsSongbirds, birdsPredators, birdsSea } from './levels';
+import {
+  getGameLevel,
+  birdsWarmUp,
+  birdsPasserines,
+  birdsForest,
+  birdsSongbirds,
+  birdsPredators,
+  birdsSea,
+} from './levels';
 import { answersList, playerAnswers, answersText } from './answers';
-import { isPlay, audio, startAudio, setTimeDuration, pauseAudio, setVolumeUp, setVolumeDown } from './player';
+import {
+  isPlay,
+  audio,
+  startAudio,
+  setTimeDuration,
+  pauseAudio,
+  setVolumeUp,
+  setVolumeDown,
+} from './player';
 import { randomNum, getTimeCodeFromNum } from './functions';
 
 const birdImage = document.querySelector('._bird-image');
@@ -130,7 +146,7 @@ function setAudioTimeCurrentBird(e) {
   }
 }
 
-setInterval(setAudioTimeCurrentBird, 1000);
+// setInterval(setAudioTimeCurrentBird, 1000);
 
 function updateProgressBarCurrent(e) {
   const { duration, currentTime } = e.srcElement;
@@ -190,6 +206,8 @@ function toggleBirdPlayBtn() {
 }
 
 if (headerLinks[1].classList.contains('_active-link')) {
+  setInterval(setAudioTimeCurrentBird, 1000);
+
   answersList.addEventListener('click', showBirdInfo);
   birdPlay.addEventListener('click', toggleBirdPlayBtn);
   currentAudio.addEventListener('timeupdate', updateProgressBarCurrent);
@@ -205,4 +223,13 @@ if (headerLinks[1].classList.contains('_active-link')) {
   });
 }
 
-export { answersList, playerAnswers, currentAudio };
+export {
+  answersList,
+  playerAnswers,
+  currentAudio,
+  toggleBirdPlayBtn,
+  birdPlay,
+  timeCurrentDuration,
+  currentTimePlay,
+  endAudioCurrent,
+};
