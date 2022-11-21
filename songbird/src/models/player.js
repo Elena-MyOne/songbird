@@ -21,8 +21,6 @@ const audio = new Audio();
 
 let randomBird = createBirdsList();
 
-console.log(randomBird);
-
 function getBirdTrack() {
   return randomBird[getGameLevel() - 1].audio;
 }

@@ -19,4 +19,4 @@ import { galleryPrevBtn, galleryNextBtn } from './models/gallery';
 
 import headerInput from './models/language';
 
-// showMessage();
+showMessage();
