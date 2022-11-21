@@ -1,4 +1,7 @@
+import birdsData from './birdsDataEn';
 import { headerLinks } from './menu';
+import { questionsItem } from './levels';
+import { nextLevelBtn } from './nextLevel';
 
 const headerInput = document.querySelector('.header__input');
 const footerDev = document.querySelector('.footer__dev');
@@ -63,6 +66,49 @@ const pageMain = [
   },
 ];
 
+const pageGame = [
+  {
+    scoreText: 'Score:',
+    warmingUp: 'Warming up',
+    passerines: 'Passerines',
+    forest: 'Forest birds',
+    songbirds: 'Songbirds',
+    predator: 'Predator birds',
+    sea: 'Sea birds',
+    answersText: `
+    <p>Listen to the melody</p>
+    <p>and choose a bird from the list</p>
+    `,
+    nextLevelBtn: 'Next Level',
+    raven: 'Raven',
+    crane: 'Crane',
+    swallows: 'Swallows',
+    nightjar: 'Nightjar',
+    cuckoo: 'Cuckoo',
+    titmouse: 'Titmouse',
+  },
+  {
+    scoreText: 'Счет:',
+    warmingUp: 'Разминка',
+    passerines: 'Воробьиные',
+    forest: 'Лесные птицы',
+    songbirds: 'Певчие птицы',
+    predator: 'Хищные птицы',
+    sea: 'Морские птицы',
+    answersText: `
+    <p>Послушайте плеер.</p>
+    <p>Выберите птицу из списка</p>
+    `,
+    nextLevelBtn: 'Далее',
+    raven: 'Ворон',
+    crane: 'Журавль',
+    swallows: 'Ласточка',
+    nightjar: 'Козодой',
+    cuckoo: 'Кукушка',
+    titmouse: 'Синица',
+  },
+];
+
 function translateMenu(index) {
   headerLinks[0].textContent = langMenu[index].home;
   headerLinks[1].textContent = langMenu[index].game;
@@ -70,15 +116,15 @@ function translateMenu(index) {
   headerLinks[3].textContent = langMenu[index].gallery;
 }
 
+function translateFooter(index) {
+  footerDev.textContent = langFooter[index].dev;
+}
+
 function translateIndexMain(index) {
   const children = mainColumn.children;
   children[0].textContent = pageMain[index].title;
   children[1].innerHTML = pageMain[index].rules;
   children[2].textContent = pageMain[index].start;
-}
-
-function translateFooter(index) {
-  footerDev.textContent = langFooter[index].dev;
 }
 
 function translateIndexPage() {
@@ -94,13 +140,57 @@ function translateIndexPage() {
   }
 }
 
+function translateScore(index) {
+  const scoreText = document.querySelector('.score__text');
+  scoreText.textContent = pageGame[index].scoreText;
+}
+
+function translateQuestionsItems(index) {
+  questionsItem[0].textContent = pageGame[index].warmingUp;
+  questionsItem[1].textContent = pageGame[index].passerines;
+  questionsItem[2].textContent = pageGame[index].forest;
+  questionsItem[3].textContent = pageGame[index].songbirds;
+  questionsItem[4].textContent = pageGame[index].predator;
+  questionsItem[5].textContent = pageGame[index].sea;
+}
+
+function translateAnswersText(index) {
+  document.querySelector('.answers__text').innerHTML = pageGame[index].answersText;
+}
+
+function translateNextBtn(index) {
+  nextLevelBtn.textContent = pageGame[index].nextLevelBtn;
+}
+
+function translateAnswersBird(index) {
+  let answersBird = document.querySelectorAll('.answers__bird');
+  answersBird[0].textContent = pageGame[index].raven;
+  answersBird[1].textContent = pageGame[index].crane;
+  answersBird[2].textContent = pageGame[index].swallows;
+  answersBird[3].textContent = pageGame[index].nightjar;
+  answersBird[4].textContent = pageGame[index].cuckoo;
+  answersBird[5].textContent = pageGame[index].titmouse;
+}
+
 function translateGamePage() {
   const lang = localStorage.getItem('userLang');
 
   if (lang === 'ru') {
     translateMenu(1);
+    translateFooter(1);
+    translateScore(1);
+    translateQuestionsItems(1);
+    translateAnswersText(1);
+    translateNextBtn(1);
+    translateAnswersBird(1);
   } else {
     translateMenu(0);
+    translateFooter(0);
+    translateScore(0);
+    translateQuestionsItems(0);
+    translateAnswersText(0);
+    translateNextBtn(0);
+    translateAnswersBird(0);
   }
 }
 

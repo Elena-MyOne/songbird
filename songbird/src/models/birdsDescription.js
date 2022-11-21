@@ -19,6 +19,7 @@ import {
   setVolumeDown,
 } from './player';
 import { randomNum, getTimeCodeFromNum } from './functions';
+import headerInput from './language';
 
 const birdImage = document.querySelector('._bird-image');
 const birdTitle = document.querySelector('._bird-title');
@@ -59,52 +60,90 @@ function showBirdInfo(e) {
 }
 
 function getBirdObject(currentBird) {
+  const lang = localStorage.getItem('userLang');
+
   let bird;
 
   if (getGameLevel() === 1) {
     birdsWarmUp.forEach((item) => {
-      if (currentBird === item.name) {
-        return (bird = item);
+      if (lang === 'ru') {
+        if (currentBird === item.nameRu) {
+          return (bird = item);
+        }
+      } else {
+        if (currentBird === item.name) {
+          return (bird = item);
+        }
       }
     });
   }
 
   if (getGameLevel() === 2) {
     birdsPasserines.forEach((item) => {
-      if (currentBird === item.name) {
-        return (bird = item);
+      if (lang === 'ru') {
+        if (currentBird === item.nameRu) {
+          return (bird = item);
+        }
+      } else {
+        if (currentBird === item.name) {
+          return (bird = item);
+        }
       }
     });
   }
 
   if (getGameLevel() === 3) {
     birdsForest.forEach((item) => {
-      if (currentBird === item.name) {
-        return (bird = item);
+      if (lang === 'ru') {
+        if (currentBird === item.nameRu) {
+          return (bird = item);
+        }
+      } else {
+        if (currentBird === item.name) {
+          return (bird = item);
+        }
       }
     });
   }
 
   if (getGameLevel() === 4) {
     birdsSongbirds.forEach((item) => {
-      if (currentBird === item.name) {
-        return (bird = item);
+      if (lang === 'ru') {
+        if (currentBird === item.nameRu) {
+          return (bird = item);
+        }
+      } else {
+        if (currentBird === item.name) {
+          return (bird = item);
+        }
       }
     });
   }
 
   if (getGameLevel() === 5) {
     birdsPredators.forEach((item) => {
-      if (currentBird === item.name) {
-        return (bird = item);
+      if (lang === 'ru') {
+        if (currentBird === item.nameRu) {
+          return (bird = item);
+        }
+      } else {
+        if (currentBird === item.name) {
+          return (bird = item);
+        }
       }
     });
   }
 
   if (getGameLevel() === 6) {
     birdsSea.forEach((item) => {
-      if (currentBird === item.name) {
-        return (bird = item);
+      if (lang === 'ru') {
+        if (currentBird === item.nameRu) {
+          return (bird = item);
+        }
+      } else {
+        if (currentBird === item.name) {
+          return (bird = item);
+        }
       }
     });
   }
@@ -179,8 +218,15 @@ function createImage(item) {
 }
 
 function createTitle(item) {
+  const lang = localStorage.getItem('userLang');
+
   birdTitle.textContent = '';
-  return (birdTitle.textContent = item.name);
+
+  if (lang === 'ru') {
+    return (birdTitle.textContent = item.nameRu);
+  } else {
+    return (birdTitle.textContent = item.name);
+  }
 }
 
 function createSubtitle(item) {
@@ -189,8 +235,14 @@ function createSubtitle(item) {
 }
 
 function createDescription(item) {
+  const lang = localStorage.getItem('userLang');
+
   birdDescription.textContent = '';
-  return (birdDescription.textContent = item.description);
+  if (lang === 'ru') {
+    return (birdDescription.textContent = item.descriptionRu);
+  } else {
+    return (birdDescription.textContent = item.description);
+  }
 }
 
 function createBirdTrack(item) {

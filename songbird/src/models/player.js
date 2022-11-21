@@ -45,9 +45,7 @@ function pauseAudio(audio) {
 
 function playAudio() {
   if (isPlay === false) {
-    // startAudio(audio, birdTrack);
     startAudio(audio, getBirdTrack());
-    // setTimeDuration(timeDuration, birdDuration);
     setTimeDuration(timeDuration, getBirdDuration());
   } else {
     pauseAudio(audio);
@@ -159,4 +157,17 @@ if (headerLinks[1].classList.contains('_active-link')) {
   });
 }
 
-export { audio, birdsWarmUp, isPlay, startAudio, setTimeDuration, pauseAudio, setVolumeUp, setVolumeDown, randomBird, endAudio, togglePlayBtn, setPlayBtn };
+export {
+  audio,
+  birdsWarmUp,
+  isPlay,
+  startAudio,
+  setTimeDuration,
+  pauseAudio,
+  setVolumeUp,
+  setVolumeDown,
+  randomBird,
+  endAudio,
+  togglePlayBtn,
+  setPlayBtn,
+};

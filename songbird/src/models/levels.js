@@ -47,4 +47,16 @@ function createBirdsList() {
   return birds.flat();
 }
 
-export { level, getGameLevel, resetGameLevel, createBirdsList, birdsWarmUp, birdsPasserines, birdsForest, birdsSongbirds, birdsPredators, birdsSea };
+export {
+  level,
+  getGameLevel,
+  resetGameLevel,
+  createBirdsList,
+  birdsWarmUp,
+  birdsPasserines,
+  birdsForest,
+  birdsSongbirds,
+  birdsPredators,
+  birdsSea,
+  questionsItem,
+};

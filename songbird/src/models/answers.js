@@ -2,7 +2,15 @@ import birdsData from './birdsDataEn';
 import { headerLinks } from './menu';
 import { getGameLevel } from './levels';
 import { randomBird, audio, pauseAudio, endAudio, setPlayBtn } from './player';
-import { level, nextLevelBtn, setActiveButton, setDisabledButton, updateNextButton, setWrongAnswers, countWrongAnswers } from './nextLevel';
+import {
+  level,
+  nextLevelBtn,
+  setActiveButton,
+  setDisabledButton,
+  updateNextButton,
+  setWrongAnswers,
+  countWrongAnswers,
+} from './nextLevel';
 
 const answersList = document.querySelector('.answers__list');
 const playerAnswers = document.querySelector('.player-answers');
@@ -16,7 +24,13 @@ function hideBirdInfo() {
 }
 
 function getRightAnswer() {
-  return randomBird[getGameLevel() - 1].name;
+  const lang = localStorage.getItem('userLang');
+
+  if (lang === 'ru') {
+    return randomBird[getGameLevel() - 1].nameRu;
+  } else {
+    return randomBird[getGameLevel() - 1].name;
+  }
 }
 
 function getRightAnswerImage() {
@@ -94,10 +108,15 @@ function resetTargetMark() {
 }
 
 function updateQuestionItems() {
+  const lang = localStorage.getItem('userLang');
   const targetItems = Array.from(document.querySelectorAll('.answers__bird'));
 
   for (let i = 0; i < targetItems.length; i++) {
-    targetItems[i].textContent = birdsData[getGameLevel() - 1][i].name;
+    if (lang === 'ru') {
+      targetItems[i].textContent = birdsData[getGameLevel() - 1][i].nameRu;
+    } else {
+      targetItems[i].textContent = birdsData[getGameLevel() - 1][i].name;
+    }
   }
 }
 
@@ -113,4 +132,15 @@ if (headerLinks[1].classList.contains('_active-link')) {
   answersList.addEventListener('click', setAnswersMark);
 }
 
-export { answersList, playerAnswers, answersText, resetTopImage, resetTopPlayerBirdName, hideBirdInfo, resetTargetMark, updateQuestionItems, resetAnswersMark, resetQuestionItems };
+export {
+  answersList,
+  playerAnswers,
+  answersText,
+  resetTopImage,
+  resetTopPlayerBirdName,
+  hideBirdInfo,
+  resetTargetMark,
+  updateQuestionItems,
+  resetAnswersMark,
+  resetQuestionItems,
+};
