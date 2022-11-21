@@ -44,12 +44,6 @@ function setNextLevel() {
   resetAnswersMark();
 }
 
-function resetGame() {
-  if (getGameLevel() === 6) {
-    window.location.reload(); // перезагрузит страницу
-  }
-}
-
 function goNextLevel() {
   if (nextLevelBtn.classList.contains('button')) {
     scoreItem.textContent = `${score}`;

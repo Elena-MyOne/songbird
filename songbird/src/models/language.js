@@ -120,6 +120,17 @@ const results = [
   },
 ];
 
+const gallery = [
+  {
+    description:
+      'Raven is a large bird. The body length reaches 70 centimeters, the wingspan is up to one and a half meters. Ravens inhabit the vicinity of the Tower. There is a belief in England that the day the black crows fly away from the Tower, the monarchy will collapse.',
+  },
+  {
+    description:
+      'Ворон – крупная птица. Длина тела достигает 70 сантиметров, размах крыльев – до полутора метров. Вороны населяют окрестности Тауэра. В Англии бытует поверье, что в день, когда черные вороны улетят от Тауэра, монархия рухнет.',
+  },
+];
+
 function translateMenu(index) {
   headerLinks[0].textContent = langMenu[index].home;
   headerLinks[1].textContent = langMenu[index].game;
@@ -225,6 +236,29 @@ function translateResultsPage() {
   }
 }
 
+function translateGallery(index) {
+  document.querySelector('.player__title').textContent = pageGame[index].raven;
+  document.querySelector('._gallery-description').textContent = gallery[index].description;
+}
+
+function translateGalleryPage() {
+  const lang = localStorage.getItem('userLang');
+
+  if (lang === 'ru') {
+    translateMenu(1);
+    translateFooter(1);
+    translateGallery(1);
+  } else {
+    translateMenu(0);
+    translateFooter(0);
+    translateGallery(0);
+  }
+}
+
+function resetGame() {
+  window.location.reload(); // перезагрузит страницу
+}
+
 headerInput.addEventListener('change', setLangStorage);
 window.addEventListener('load', setLangCheckbox);
 
@@ -235,12 +269,19 @@ if (headerLinks[0].classList.contains('_active-link')) {
 
 if (headerLinks[1].classList.contains('_active-link')) {
   headerInput.addEventListener('change', translateGamePage);
+  headerInput.addEventListener('change', resetGame);
   window.addEventListener('load', translateGamePage);
 }
 
 if (headerLinks[2].classList.contains('_active-link')) {
   headerInput.addEventListener('change', translateResultsPage);
   window.addEventListener('load', translateResultsPage);
+}
+
+if (headerLinks[3].classList.contains('_active-link')) {
+  headerInput.addEventListener('change', translateGalleryPage);
+  headerInput.addEventListener('change', resetGame);
+  window.addEventListener('load', translateGalleryPage);
 }
 
 export default headerInput;

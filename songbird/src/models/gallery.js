@@ -52,10 +52,16 @@ function getGalleryImages() {
 }
 
 function getGalleryTitles() {
+  const lang = localStorage.getItem('userLang');
+
   const result = [];
   for (let i = 0; i < birdsData.length; i++) {
     for (let j = 0; j < birdsData[i].length; j++) {
-      result.push(birdsData[i][j].name);
+      if (lang === 'ru') {
+        result.push(birdsData[i][j].nameRu);
+      } else {
+        result.push(birdsData[i][j].name);
+      }
     }
   }
   return result;
@@ -72,10 +78,16 @@ function getGallerySubtitles() {
 }
 
 function getGalleryDescriptions() {
+  const lang = localStorage.getItem('userLang');
+
   const result = [];
   for (let i = 0; i < birdsData.length; i++) {
     for (let j = 0; j < birdsData[i].length; j++) {
-      result.push(birdsData[i][j].description);
+      if (lang === 'ru') {
+        result.push(birdsData[i][j].descriptionRu);
+      } else {
+        result.push(birdsData[i][j].description);
+      }
     }
   }
   return result;
