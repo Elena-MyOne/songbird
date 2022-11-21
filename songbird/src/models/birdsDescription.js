@@ -185,8 +185,6 @@ function setAudioTimeCurrentBird(e) {
   }
 }
 
-// setInterval(setAudioTimeCurrentBird, 1000);
-
 function updateProgressBarCurrent(e) {
   const { duration, currentTime } = e.srcElement;
   const progressPercent = (currentTime / duration) * 100;

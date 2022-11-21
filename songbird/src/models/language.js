@@ -109,6 +109,17 @@ const pageGame = [
   },
 ];
 
+const results = [
+  {
+    resultsScore: 'Nothing here yet',
+    resultsButton: 'Play',
+  },
+  {
+    resultsScore: 'Здесь пока ничего нет',
+    resultsButton: 'Играть',
+  },
+];
+
 function translateMenu(index) {
   headerLinks[0].textContent = langMenu[index].home;
   headerLinks[1].textContent = langMenu[index].game;
@@ -172,6 +183,12 @@ function translateAnswersBird(index) {
   answersBird[5].textContent = pageGame[index].titmouse;
 }
 
+function translateResults(index) {
+  document.querySelector('._title-results').textContent = pageGame[index].scoreText;
+  document.querySelector('.results__score').textContent = results[index].resultsScore;
+  document.querySelector('.results__button').textContent = results[index].resultsButton;
+}
+
 function translateGamePage() {
   const lang = localStorage.getItem('userLang');
 
@@ -194,6 +211,20 @@ function translateGamePage() {
   }
 }
 
+function translateResultsPage() {
+  const lang = localStorage.getItem('userLang');
+
+  if (lang === 'ru') {
+    translateMenu(1);
+    translateFooter(1);
+    translateResults(1);
+  } else {
+    translateMenu(0);
+    translateFooter(0);
+    translateResults(0);
+  }
+}
+
 headerInput.addEventListener('change', setLangStorage);
 window.addEventListener('load', setLangCheckbox);
 
@@ -205,6 +236,11 @@ if (headerLinks[0].classList.contains('_active-link')) {
 if (headerLinks[1].classList.contains('_active-link')) {
   headerInput.addEventListener('change', translateGamePage);
   window.addEventListener('load', translateGamePage);
+}
+
+if (headerLinks[2].classList.contains('_active-link')) {
+  headerInput.addEventListener('change', translateResultsPage);
+  window.addEventListener('load', translateResultsPage);
 }
 
 export default headerInput;
