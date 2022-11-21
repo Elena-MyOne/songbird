@@ -1,7 +1,7 @@
 import birdsData from './birdsDataEn';
 import { headerLinks } from './menu';
 import { questionsItem } from './levels';
-import { nextLevelBtn } from './nextLevel';
+import { nextLevelBtn, showScore } from './nextLevel';
 
 const headerInput = document.querySelector('.header__input');
 const footerDev = document.querySelector('.footer__dev');
@@ -275,6 +275,7 @@ if (headerLinks[1].classList.contains('_active-link')) {
 
 if (headerLinks[2].classList.contains('_active-link')) {
   headerInput.addEventListener('change', translateResultsPage);
+  headerInput.addEventListener('change', showScore);
   window.addEventListener('load', translateResultsPage);
 }
 
