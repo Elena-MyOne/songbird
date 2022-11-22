@@ -197,7 +197,7 @@ function translateAnswersBird(index) {
 function translateResults(index) {
   document.querySelector('._title-results').textContent = pageGame[index].scoreText;
   document.querySelector('.results__score').textContent = results[index].resultsScore;
-  document.querySelector('.results__button').textContent = results[index].resultsButton;
+  document.querySelector('.results__button-link').textContent = results[index].resultsButton;
 }
 
 function translateGamePage() {
