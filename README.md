@@ -1,4 +1,4 @@
-Welcome to the game Songbird where you should guess a bird by its sound.
+Welcome to the game Songbird ([deploy](https://elena-myone.github.io/songbird/songbird/dist/)), where you should guess a bird by its sound.
 
 Rules are pretty easy:
 
